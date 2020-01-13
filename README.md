@@ -1,8 +1,12 @@
 ### 
 Made by:  Kristiina Niit, Isabelle Lind, Patrick Carrera Jeri 
+
 Medical Engineering, Project Course
+
 Time Frame: 20W 
+
 2020-01-13 
+
 ### Neonatal Incubator 
 
 Our project was to make an medical incubator for developing countries with a focus on controlling the humidity. We used a bluetooth module to get humidity data from a DHT11 sensor and controlled it with an arduino.
