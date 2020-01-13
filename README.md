@@ -1,6 +1,21 @@
+### 
+Made by:  Kristiina Niit, Isabelle Lind, Patrick Carrera Jeri 
+Medical Engineering, Project Course
+Time Frame: 20W 
+2020-01-13 
 ### Neonatal Incubator 
 
 Our project was to make an medical incubator for developing countries with a focus on controlling the humidity. We used a bluetooth module to get humidity data from a DHT11 sensor and controlled it with an arduino.
+### What components are we going to use? 
+
+DHT11 SENSOR - Find Current Temperature and FAN 
+Arduino - Controll everything 
+FAN12V 
+METAL container - Hold the Water 
+CANDLE 
+RESISTORS 
+MOSFET 
+
 ### There was a plan
 This is the final plan
 
@@ -17,6 +32,10 @@ This is a two step problem.
 ### Controll of the fan?
 
 The speed of the fan is determine with a PID-system. The input for the PID system will be the current humidity and the Output of the PID system will be PWM signal to the Fan. TLDR: High Humidty = High Speed, Low Humidity = Low Speed. 
+
+### Link to Short paper writen about this
+
+https://docs.google.com/document/d/1ZC7YEh4ozLTuGMorGt0SCKr8AUzATNuX0OGmZ97gEUg/edit
 
 ### Everything togther How did it look? 
 
