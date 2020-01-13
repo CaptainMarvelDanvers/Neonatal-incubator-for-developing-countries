@@ -6,6 +6,7 @@ You can use the [editor on GitHub](https://github.com/CaptainMarvelDanvers/Refac
 Our project was to make an medical incubator for developing countries with a focus on controlling the humidity. We used a bluetooth module to get humidity data from a DHT11 sensor and controlled it with an arduino.
 ### There was a plan
 This was the inicial ide 
+
 ![alt text](https://user-images.githubusercontent.com/46792060/72289837-3900f580-364c-11ea-8a92-1d2f13b578c2.png)
 
 The plan was to have around 50% humidity in the incubator. 
@@ -22,6 +23,9 @@ The speed of the fan is determine with a PID-system. The input for the PID syste
 
 ![alt text](https://user-images.githubusercontent.com/46792060/72289573-b2e4af00-364b-11ea-8719-26426a0036b8.jpeg)
 
+### Arduino code
+
+Some part of the code is not active and the reason behind this was ..... osäker hur vi gör här.... Ta bort manuelt alla komentarer eller säger vi varför det är borta? 
 
 ```markdown
 #include <dht.h>
@@ -182,15 +186,11 @@ void setPwmFrequency(int pin, int divisor) {
 
 
 ### Showing Data in Real Time with Matlab Code
-Data was taken 
-Data behövdes hämtas från Bluetooth till datorn för att sedan presentera det i real tid. Detta korta skriptet användas för just det. Notera att Arduino har en tendens att skicka ut allt sin data (bluetooth) i form av text och inget annat. För att kringå detta problem används str2num eller string to number. Detta funkar enbart om vi vet att Arudino inte skickar två saker samtidigt exempelvis om vi får in 1010 när det faktiskt är 10 10 då kommer matlab koden utan tvekan tolka det som 1010 när konverteringen sker. 
 
+This short matlab code was done to pressent data in real time. Arduino likes to send data in a form of a text file and this can cause some problems and the main problem is the following 
 
-![alt text](https://user-images.githubusercontent.com/46792060/72286982-8bd7ae80-3646-11ea-97ae-5af537caaea5.PNG)
+1. Assumes that arduino always sends data once! If for some reason we are given the number "1010" the code will convert it to 1010 and not 10 & 10.  
 
-Här kan man se hur fuktigheten påverkar hastigheten av fläkten. 
-
-###
 ```markdown
 %% This Code Shows Real Time Data.... 
 
@@ -220,3 +220,6 @@ end
 hold off
 fclose(b);
 ```
+### Real Time data with PWM signal 
+Here we can see how the humidity affects the fan speed. 
+![alt text](https://user-images.githubusercontent.com/46792060/72286982-8bd7ae80-3646-11ea-97ae-5af537caaea5.PNG)
