@@ -204,6 +204,7 @@ void setPwmFrequency(int pin, int divisor) {
 
 ### Showing Data in Real Time with Matlab Code
 När data skickas från Arduino till Bluetooth och sen till dator kommer arduino ha en tendens att skicka det som en text fil istället för ett binärt tal. str2num används för att hämta den textfilen. 
+###
 ```markdown
 %% This Code Shows Real Time Data.... 
 
@@ -236,7 +237,7 @@ fclose(b);
 
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-###
+
 
 ### Jekyll Themes
 
