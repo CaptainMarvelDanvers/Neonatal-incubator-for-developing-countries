@@ -201,8 +201,10 @@ void setPwmFrequency(int pin, int divisor) {
 }
 ```
 
-```markdown
+
 ### Showing Data in Real Time with Matlab Code
+När data skickas från Arduino till Bluetooth och sen till dator kommer arduino ha en tendens att skicka det som en text fil istället för ett binärt tal. str2num används för att hämta den textfilen. 
+```markdown
 %% This Code Shows Real Time Data.... 
 
 b = Bluetooth('HC-06',1); %Make The Connection... 
@@ -235,6 +237,7 @@ fclose(b);
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 ###
+
 ### Jekyll Themes
 
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CaptainMarvelDanvers/Refactored-invention/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
