@@ -1,19 +1,18 @@
-
-You can use the [editor on GitHub](https://github.com/CaptainMarvelDanvers/Refactored-invention/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
 ### Neonatal Incubator 
 
 Our project was to make an medical incubator for developing countries with a focus on controlling the humidity. We used a bluetooth module to get humidity data from a DHT11 sensor and controlled it with an arduino.
 ### There was a plan
-This was the inicial ide 
+This is the final plan
 
 ![alt text](https://user-images.githubusercontent.com/46792060/72289837-3900f580-364c-11ea-8a92-1d2f13b578c2.png)
 
-The plan was to have around 50% humidity in the incubator. 
+The current plan is to have a stable humidity at 50% 
 
 ### Controll of the Humidity? 
+This is a two step problem. 
 
-This is a two step problem. We first need to generate humidity and we need a way to lower the humidity. A way to generate humidity is to use boiling water. A problem with this solution is that the water will naturly lose temperature and lower the production off humidity a sulution to this was to use a candle. How do we lower the humidity? we use a fan to filter air out. 
+1. Generate Humidty: A way to generate humidty is to use boiling water. A problem with this is that the water will naturly lose temperature and lower the humidity production. Solution to this is a candle under the boiling water to keep it at the same temperature
+2. Lower the Humidity: A fan is used to filter out the air
 
 ### Controll of the fan?
 
@@ -24,9 +23,9 @@ The speed of the fan is determine with a PID-system. The input for the PID syste
 ![alt text](https://user-images.githubusercontent.com/46792060/72289573-b2e4af00-364b-11ea-8719-26426a0036b8.jpeg)
 
 ### Arduino code
-
-Some part of the code is not active and the reason behind this was ..... osäker hur vi gör här.... Ta bort manuelt alla komentarer eller säger vi varför det är borta? 
-
+Few things to consider before 
+DHT11 SENSOR will need atleast 1s to update it's values. 
+PID system can be impruven on with more testing around the constants Kp, ki and kd 
 ```markdown
 #include <dht.h>
 #include <LiquidCrystal.h>
@@ -39,10 +38,8 @@ dht DHT;
 
 int Hum_fan = 6;
 int Temp_Fan = 9; 
-int Fan_Speed = 0; 
 
-int Heater;
-//int HeaterSpeed;
+
 //This Will Be for the PID SYSTEM!
 #define OUTPUT_MIN 0
 #define OUTPUT_MAX 255
@@ -58,7 +55,6 @@ int Heater;
 double HumRead, setPoint, outputHum;
 double TempRead,SetPoint,OutPutTemp;
 
-AutoPID myPID(&HumRead, &setPoint, &outputHum, OUTPUT_MIN, OUTPUT_MAX, KP, KI, KD);
 // from 100 - 255 PWM.... Needs that for temp.... 
 AutoPID my2PID(&TempRead, &SetPoint, &OutPutTemp, OUTPUT_MIN,OUTPUT_MAX,KP,KI,KD);
 
@@ -90,23 +86,12 @@ void loop()
   lcd.print(DHT.humidity);
   lcd.print("%");
   
-  Lower_HUM_FAN();
   PID_TEMP_FAN();
   ShowValues(); // This Will Send Current Data/Values...
-  //HeaterControll();
+ 
   delay(1250);
 }
-/*
- * Heater Should Reach Temp Wanted
- * And Then keep it at that point... PID system Here aswell? 
- */
-void HeaterControll() {
 
-  //HeaterSpeed = (12/12)*256;
-  
-  //digitalWrite(Heater,HIGH); 
-
-}
 void PID_TEMP_FAN(){
   int out = 0;
   int offset = 110; 
@@ -123,19 +108,7 @@ void PID_TEMP_FAN(){
   analogWrite(Temp_Fan, out);
 
 }
-// PID system for HUM fan....... 
-// while(Hum < 30) KEEP PID on 
-// End with Giving HUM_FAN LOW
-void Lower_HUM_FAN() {
 
-  //setPoint = 35;
-  //HumRead = DHT.humidity;
-  //myPID.run();
-  //analogWrite(Hum_fan, outputHum); 
-  digitalWrite(Hum_fan,HIGH);
-  
-  
-}
 
 
 void ShowValues() {
@@ -189,7 +162,7 @@ void setPwmFrequency(int pin, int divisor) {
 
 This short matlab code was done to pressent data in real time. Arduino likes to send data in a form of a text file and this can cause some problems and the main problem is the following 
 
-1. Assumes that arduino always sends data once! If for some reason we are given the number "1010" the code will convert it to 1010 and not 10 & 10.  
+1. Assumes that arduino always sends data once! If for some reason we are given the number "1010" the code will convert it to 1010 and not 10 & 10. This is something to consider when doing this, a way to solve this is to hard code it in to the arduino that it will never update the sending value if it's the same value all the time. 
 
 ```markdown
 %% This Code Shows Real Time Data.... 
