@@ -205,7 +205,7 @@ void setPwmFrequency(int pin, int divisor) {
 ### Showing Data in Real Time with Matlab Code
 Data behövdes hämtas från Bluetooth till datorn för att sedan presentera det i real tid. Detta korta skriptet användas för just det. Notera att Arduino har en tendens att skicka ut allt sin data (bluetooth) i form av text och inget annat. För att kringå detta problem används str2num eller string to number. Detta funkar enbart om vi vet att Arudino inte skickar två saker samtidigt exempelvis om vi får in 1010 när det faktiskt är 10 10 då kommer matlab koden utan tvekan tolka det som 1010 när konverteringen sker. 
 
-!(https://user-images.githubusercontent.com/46792060/72286982-8bd7ae80-3646-11ea-97ae-5af537caaea5.PNG)
+![alt text](https://user-images.githubusercontent.com/46792060/72286982-8bd7ae80-3646-11ea-97ae-5af537caaea5.PNG)
 
 ###
 ```markdown
