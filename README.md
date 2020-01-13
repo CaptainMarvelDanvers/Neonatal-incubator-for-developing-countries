@@ -6,11 +6,6 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ### Markdown
 
-
-
-
-
-
 Neonatal kuvös till lågt pris för utvecklingsländer
 Gjort Av Kristiina Niit, Isabelle Lind, Patrick Carrera Jeri
 HL 2030
