@@ -200,10 +200,10 @@ void setPwmFrequency(int pin, int divisor) {
   }
 }
 ```
-
+![Skärmklipp](https://user-images.githubusercontent.com/46792060/72286982-8bd7ae80-3646-11ea-97ae-5af537caaea5.PNG)
 
 ### Showing Data in Real Time with Matlab Code
-När data skickas från Arduino till Bluetooth och sen till dator kommer arduino ha en tendens att skicka det som en text fil istället för ett binärt tal. str2num används för att hämta den textfilen. 
+Data behövdes hämtas från Bluetooth till datorn för att sedan presentera det i real tid. Detta korta skriptet användas för just det. Notera att Arduino har en tendens att skicka ut allt sin data (bluetooth) i form av text och inget annat. För att kringå detta problem används str2num eller string to number. Detta funkar enbart om vi vet att Arudino inte skickar två saker samtidigt exempelvis om vi får in 1010 när det faktiskt är 10 10 då kommer matlab koden utan tvekan tolka det som 1010 när konverteringen sker. 
 ###
 ```markdown
 %% This Code Shows Real Time Data.... 
@@ -234,15 +234,3 @@ end
 hold off
 fclose(b);
 ```
-
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/CaptainMarvelDanvers/Refactored-invention/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
