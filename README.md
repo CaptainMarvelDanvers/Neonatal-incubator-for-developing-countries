@@ -1,7 +1,10 @@
 ### 
 Made by:  Kristiina Niit, Isabelle Lind, Patrick Carrera Jeri 
+
 Medical Engineering, Project Course
+
 Time Frame: 20W 
+
 2020-01-13 
 
 ### Neonatal Incubator 
@@ -10,13 +13,18 @@ Our project was to make an medical incubator for developing countries with a foc
 ### What components are we going to use? 
 
 DHT11 SENSOR - Find Current Temperature and FAN 
-Arduino - Controll everything 
-FAN12V 
-METAL container - Hold the Water 
-CANDLE 
-RESISTORS 
-MOSFET 
 
+Arduino - Controll everything 
+
+FAN12V 
+
+METAL container - Hold the Water 
+
+CANDLE 
+
+RESISTORS 
+
+MOSFET 
 ### There was a plan
 This is the final plan
 
