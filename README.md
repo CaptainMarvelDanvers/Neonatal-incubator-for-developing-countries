@@ -1,19 +1,27 @@
-## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/CaptainMarvelDanvers/Refactored-invention/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
+### Neonatal Incubator 
 
 Our project was to make an medical incubator for developing countries with a focus on controlling the humidity. We used a bluetooth module to get humidity data from a DHT11 sensor and controlled it with an arduino.
-### The Plan
+### There was a plan
+This was the inicial ide 
+![alt text](https://user-images.githubusercontent.com/46792060/72289837-3900f580-364c-11ea-8a92-1d2f13b578c2.png)
 
 The plan was to have around 50% humidity in the incubator. 
 
-### How are we going to controll the Humidity? 
+### Controll of the Humidity? 
 
-To Generate humidity we are going to use boiling water a big problem with this is that the waters tempeture will slowly go down and that will reduce the humidity production. To solve this we used a candle under the water to keep it boiling. Now we are going to a way to lower the humidity and this is where a fan is going to be used to filter out the high humidity
+This is a two step problem. We first need to generate humidity and we need a way to lower the humidity. A way to generate humidity is to use boiling water. A problem with this solution is that the water will naturly lose temperature and lower the production off humidity a sulution to this was to use a candle. How do we lower the humidity? we use a fan to filter air out. 
+
+### Controll of the fan?
+
+The speed of the fan is determine with a PID-system. The input for the PID system will be the current humidity and the Output of the PID system will be PWM signal to the Fan. TLDR: High Humidty = High Speed, Low Humidity = Low Speed. 
+
+### Everything togther How did it look? 
+
+![alt text](https://user-images.githubusercontent.com/46792060/72289573-b2e4af00-364b-11ea-8719-26426a0036b8.jpeg)
+
 
 ```markdown
 #include <dht.h>
