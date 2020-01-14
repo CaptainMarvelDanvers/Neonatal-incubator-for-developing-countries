@@ -264,7 +264,7 @@ Here we can see how the humidity affects the fan speed.
 
 A Medical incubator needs to regulate both humidity and temperature. Our solution regulates humidity but has no inpact on the temperature in the incubator. Possible solutions to this? 
 
-Nichrome. We could use nichrome in small strips over a 12V fan. if we use 1.2Amps with 12V we can generate up to 80W. This will generate alot of temperature increase in the incubator. This will have some troubling issues...
+Nichrome. We could use nichrome in small strips over a 12V fan. if we use 1.2Amps with 12V we can generate up to 80W. This will generate alot of temperature in the incubator. This will have some troubling issues...
 
 1. If we dont check nichrome often it can become hot enough to melt, if that happens it can damage the fan enough to break it and stop it from heating the incubator. 
 2. To solve 1. We need to monitor the current temperatur of the nichrome and make sure it never reaches the melting point. 
