@@ -46,7 +46,7 @@ The speed of the fan is determine with a PID-system. The input for the PID syste
 
 https://docs.google.com/document/d/1ZC7YEh4ozLTuGMorGt0SCKr8AUzATNuX0OGmZ97gEUg/edit
 
-### Arduino can only generate 5
+### Give Arduino the ability to generate 12V from 5V
 We need a way to generate 12V so we used a MOSFET with 12V Drain 
 
 ![alt text](https://user-images.githubusercontent.com/46792060/72335584-79e62200-36bf-11ea-8306-94b2d2aa4d73.png)
