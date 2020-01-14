@@ -24,7 +24,7 @@ METAL container - Hold the Water
 
 CANDLE - maintaine the tempeture in the water 
 
-RESISTORS 
+RESISTORS - part of the relay system 
 
 MOSFET - More output voltage from Arduino
 ### There was a plan
@@ -194,38 +194,15 @@ void setPwmFrequency(int pin, int divisor) {
 }
 ```
 ### Why PID system? 
-PID gives the opotion to have a Propotional, Integral, Derivative. 
+PID gives the opotion to have a Propotional, Integral or Derivative influence on the output error. 
 
-1. Propotional: This in its simplest form is error * Kp. In other words it's more error equals more output. Problem with this is that we will always overshot and undershot the set point (the value we are after) 
-2. Integral: Ki * ∫(error(t)): This will take the sum of all errors over some time T and multiplies it by Ki: The output will be U=I+P. More overshot will increase the I and less overshot will reduce it. This part is used to reduce the overshot part this combined with P can generate a stable humidity in the incubator. 
-3. Derivative: Kd * f'(e)/dt: takes the velocity of the error and multiplies it with kd. Faster rate of error will go down with higher D. This part is added when we need the system to react faster.
+Set Point = value wanted. 
 
-Final part: U=I+P+D. All these togther lets us have a chanse to get a stable output around the value we are after. 
-
-### Find PID constants? 
-In this case we used a "trial and error" attack. Start with I = D = 0 and adjust Kp until you have a oscillating behavior. Oscillating behavior have undershot and overshot and this is then corrected with the integral part. 
-
-How you should start: 
-
-step 1: Make a guess for kP (we started with 0.5) 
-
-step 2: double the kP value 
-
-step 3: oscillating behavior?
-
-stpe 4: if yes... go to step 6 
-
-step 5: if no go to step 2
-
-step 6: Make a guess for kI(we started with 0.1) 
-
-step 7: make slow adjustments, add 0.5. until you are happy with the error 
+1. Propotional: error * kP. More error = More output. This sulution will always overshot the Set point. 
+2. Integral: Ki * ∫(error(t)): PI = P + I. More error = Even more output, use I to reduce the overshot. 
+3. Derivative: Kd * f'(e)/dt: PID = P + I + D. Higher rate of error = Faster response from system.  
 
 ### Showing data in real time with Matlab
-
-This short matlab code was done to pressent data in real time. Arduino likes to send data in a form of a text file and this can cause some problems and the main problem is the following 
-
-1. Assumes that arduino always sends data once! If for some reason we are given the number "1010" the code will convert it to 1010 and not 10 & 10. This is something to consider when doing this, a way to solve this is to hard code it in to the arduino that it will never update the sending value if it's the same value all the time. 
 
 ```markdown
 %% This Code Shows Real Time Data.... 
@@ -259,15 +236,3 @@ fclose(b);
 ### Real time data with PWM signal 
 Here we can see how the humidity affects the fan speed. 
 ![alt text](https://user-images.githubusercontent.com/46792060/72286982-8bd7ae80-3646-11ea-97ae-5af537caaea5.PNG)
-
-### Future Work? 
-
-A Medical incubator needs to regulate both humidity and temperature. Our solution regulates humidity but has no inpact on the temperature in the incubator. Possible solutions to this? 
-
-Nichrome. We could use nichrome in small strips over a 12V fan. if we use 1.2Amps with 12V we can generate up to 80W. This will generate alot of temperature in the incubator. This will have some troubling issues...
-
-1. If we dont check nichrome often it can become hot enough to melt, if that happens it can damage the fan enough to break it and stop it from heating the incubator. 
-2. To solve 1. We need to monitor the current temperatur of the nichrome and make sure it never reaches the melting point. 
-3. if 2 and 1 solved we need to generate appropriate output to the value and it needs to be exact. this requires perfect values almsot because we need it hot enough to generate temperature and not high enough to melt.  
-
-A Simple 60W Lamp can be used to generate some temperature, problem is that most Lamps needs 220V and this needs a relay system that can handle high voltages. A Relay system that handles high voltages cost alot! we are after low cost solutions
