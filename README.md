@@ -1,11 +1,8 @@
+### Made by: 
 
-Made by:  Kristiina Niit, Isabelle Lind, Patrick Carrera Jeri 
+Kristiina Niit, Isabelle Lind, Patrick Carrera Jeri 
 
 Medical Engineering, Project Course
-
-Time Frame: 20W 
-
-2020-01-13 
 
 ### Neonatal Incubator 
 
