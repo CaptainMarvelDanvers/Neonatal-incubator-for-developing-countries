@@ -10,21 +10,26 @@ Time Frame: 20W
 ### Neonatal Incubator 
 
 Our project was to make an medical incubator for developing countries with a focus on controlling the humidity. We used a bluetooth module to get humidity data from a DHT11 sensor and controlled it with an arduino.
+
+### TLDR.... 
+
+Low cost medical incubator. Uses boiling water with candle to generate humidity. 12V fan was chosen to bring down the humidity so we can have a stable humidty around 50%. The speed of the fan is determine with a PID system. PID system takes in a input and generates an output based on the current input. This case it's humidity in and PWM value out, the PWM value is used to handle the speed of the fan.
+
 ### What components are we going to use? 
 
 DHT11 SENSOR - Find Current Temperature and FAN 
 
 Arduino - Controll everything 
 
-FAN12V 
+2 12V FANS - To handle the temperature and humidity
 
 METAL container - Hold the Water 
 
-CANDLE 
+CANDLE - maintaine the tempeture in the water 
 
 RESISTORS 
 
-MOSFET 
+MOSFET - More output voltage from Arduino
 ### There was a plan
 This is the final plan
 
@@ -189,7 +194,13 @@ void setPwmFrequency(int pin, int divisor) {
   }
 }
 ```
+### Why PID system? 
+PID gives the opotion to have a Propotional, Integral, Derivative. 
 
+1. Propotional: This in its simplest form is error * Kp. In other words it's more error equals more output. Problem with this is that we will always overshot and undershot the set point (the value we are after) 
+2. Integral: Ki * ∫(error(t)): This will take the sum of all errors over some time T and multiplies it by Ki: The output will be U=I+P, More overshot will reduce the overshot and more overshot will increase I this will lead to lower error. 
+3. Derivative: Kd * f'(e)/dt: takes the velocity of the error and multiplies it with kd. Faster rate of error will go down with higher D. 
+Final part: U=I+P+D. All these togther lets us have a chanse to get a stable output around the value we are after. 
 
 ### Showing Data in Real Time with Matlab Code
 
