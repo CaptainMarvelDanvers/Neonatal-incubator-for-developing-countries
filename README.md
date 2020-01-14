@@ -34,7 +34,7 @@ This is the final plan
 
 The current plan is to have a stable humidity at 50% 
 
-### Controll of the Humidity? 
+### Controll of the humidity? 
 This is a two step problem. 
 
 1. Generate Humidty: A way to generate humidty is to use boiling water. A problem with this is that the water will naturly lose temperature and lower the humidity production. Solution to this is a candle under the boiling water to keep it at the same temperature
@@ -48,7 +48,7 @@ The speed of the fan is determine with a PID-system. The input for the PID syste
 
 https://docs.google.com/document/d/1ZC7YEh4ozLTuGMorGt0SCKr8AUzATNuX0OGmZ97gEUg/edit
 
-### Give Arduino the ability to generate 12V from 5V
+### Give arduino the ability to generate 12V from 5V
 We need a way to generate 12V so we used a MOSFET with 12V Drain 
 
 ![alt text](https://user-images.githubusercontent.com/46792060/72335584-79e62200-36bf-11ea-8306-94b2d2aa4d73.png)
@@ -221,7 +221,7 @@ step 6: Make a guess for kI(we started with 0.1)
 
 step 7: make slow adjustments, add 0.5. until you are happy with the error 
 
-### Showing Data in Real Time with Matlab Code
+### Showing data in real time with Matlab
 
 This short matlab code was done to pressent data in real time. Arduino likes to send data in a form of a text file and this can cause some problems and the main problem is the following 
 
@@ -256,7 +256,7 @@ end
 hold off
 fclose(b);
 ```
-### Real Time data with PWM signal 
+### Real time data with PWM signal 
 Here we can see how the humidity affects the fan speed. 
 ![alt text](https://user-images.githubusercontent.com/46792060/72286982-8bd7ae80-3646-11ea-97ae-5af537caaea5.PNG)
 
