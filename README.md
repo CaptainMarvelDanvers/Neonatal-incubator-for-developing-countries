@@ -1,4 +1,3 @@
-### 
 
 Made by:  Kristiina Niit, Isabelle Lind, Patrick Carrera Jeri 
 
