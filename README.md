@@ -204,12 +204,19 @@ Final part: U=I+P+D. All these togther lets us have a chanse to get a stable out
 In this case we used a "trial and error" attack. Start with I = D = 0 and adjust Kp until you have a oscillating behavior. Oscillating behavior have undershot and overshot and this is then corrected with the integral part. 
 
 How you should start: 
+
 step 1: Make a guess for kP (we started with 0.5) 
+
 step 2: double the kP value 
+
 step 3: oscillating behavior?
+
 stpe 4: if yes... go to step 6 
+
 step 5: if no go to step 2
+
 step 6: Make a guess for kI(we started with 0.1) 
+
 step 7: make slow adjustments, add 0.5. until you are happy with the error 
 
 ### Showing Data in Real Time with Matlab Code
