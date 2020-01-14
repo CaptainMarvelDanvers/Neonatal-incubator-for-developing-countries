@@ -58,9 +58,11 @@ We need a way to generate 12V so we used a MOSFET with 12V Drain
 ![alt text](https://user-images.githubusercontent.com/46792060/72289573-b2e4af00-364b-11ea-8719-26426a0036b8.jpeg)
 
 ### Arduino code
-Few things to consider before 
-DHT11 SENSOR will need atleast 1s to update it's values. 
-PID system can be impruven on with more testing around the constants Kp, ki and kd 
+Few things to consider before: 
+
+1. DHT11 SENSOR will need atleast 1s to update it's values. 
+2. PID system can be impruven on with more testing around the constants Kp, ki and kd 
+
 ```markdown
 #include <dht.h>
 #include <LiquidCrystal.h>
