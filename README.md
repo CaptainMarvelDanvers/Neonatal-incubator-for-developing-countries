@@ -14,7 +14,7 @@ Low cost medical incubator. Uses boiling water with candle to generate humidity.
 
 ### What components are we going to use? 
 
-DHT11 SENSOR - Find Current Temperature and humidity
+DHT11 SENSOR - Find Current temperature and humidity
 
 Arduino - Controll everything 
 
@@ -37,12 +37,12 @@ The current plan is to have a stable humidity at 50%
 ### Controll of the humidity? 
 This is a two step problem. 
 
-1. Generate Humidty: A way to generate humidty is to use boiling water. A problem with this is that the water will naturly lose temperature and lower the humidity production. Solution to this is a candle under the boiling water to keep it at the same temperature
-2. Lower the Humidity: A fan is used to filter out the air
+1. Generate humidity: A way to generate humidity is to use boiling water. A problem with this is that the water will naturly lose temperature and lower the humidity production. Solution to this is a candle under the boiling water to keep it at the same temperature
+2. Lower the Humidity: To lower the humidity we use a 12V fan
 
 ### Controll of the fan?
 
-The speed of the fan is determine with a PID-system. The input for the PID system will be the current humidity and the Output of the PID system will be PWM signal to the Fan. TLDR: High Humidty = High Speed, Low Humidity = Low Speed. 
+The speed of the fan is determine with a PID-system. The input for the PID system will be the current humidity and the Output of the PID system will be PWM signal to the Fan. TLDR: High Humidity = High Speed, Low Humidity = Low Speed. 
 
 ### Link to Short paper writen about this
 
@@ -58,10 +58,7 @@ We need a way to generate 12V so we used a MOSFET with 12V Drain
 ![alt text](https://user-images.githubusercontent.com/46792060/72289573-b2e4af00-364b-11ea-8719-26426a0036b8.jpeg)
 
 ### Arduino code
-Few things to consider before: 
-
-1. DHT11 SENSOR will need atleast 1s to update it's values. 
-2. PID system can be impruven on with more testing around the constants Kp, ki and kd 
+DHT11 sensor will need atleast 1s to read values 
 
 ```markdown
 #include <dht.h>
@@ -76,8 +73,6 @@ dht DHT;
 int Hum_fan = 6;
 int Temp_Fan = 9; 
 
-
-//This Will Be for the PID SYSTEM!
 #define OUTPUT_MIN 0
 #define OUTPUT_MAX 255
 /*
@@ -194,13 +189,13 @@ void setPwmFrequency(int pin, int divisor) {
 }
 ```
 ### Why PID system? 
-PID gives the opotion to have a Propotional, Integral or Derivative influence on the output error. 
+A propotional sulotion overshot with 10+-%... PID was needed to reduce the error. 
 
 Set Point = value wanted. 
 
 1. Propotional: error * kP. More error = More output. This sulution will always overshot the Set point. 
 2. Integral: Ki * ∫(error(t)): PI = P + I. More error = Even more output, use I to reduce the overshot. 
-3. Derivative: Kd * f'(e)/dt: PID = P + I + D. Higher rate of error = Faster response from system.  
+3. Derivative: Kd * f'(e)/dt: PID = P + I + D. High rate of error = Faster response.  
 
 ### Showing data in real time with Matlab
 
