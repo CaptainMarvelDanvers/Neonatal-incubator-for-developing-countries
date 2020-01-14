@@ -200,6 +200,7 @@ PID gives the opotion to have a Propotional, Integral, Derivative.
 1. Propotional: This in its simplest form is error * Kp. In other words it's more error equals more output. Problem with this is that we will always overshot and undershot the set point (the value we are after) 
 2. Integral: Ki * ∫(error(t)): This will take the sum of all errors over some time T and multiplies it by Ki: The output will be U=I+P, More overshot will reduce the overshot and more overshot will increase I this will lead to lower error. 
 3. Derivative: Kd * f'(e)/dt: takes the velocity of the error and multiplies it with kd. Faster rate of error will go down with higher D. 
+
 Final part: U=I+P+D. All these togther lets us have a chanse to get a stable output around the value we are after. 
 
 ### Showing Data in Real Time with Matlab Code
