@@ -241,14 +241,14 @@ Here we can see how the humidity affects the fan speed.
 
 ### Future Work? 
 
-A Medical incubator needs to regulate both humidity and temperature. Our solution regulates humidity but has no inpact on the temperature in the incubator. Possible sulution to this? 
+A Medical incubator needs to regulate both humidity and temperature. Our solution regulates humidity but has no inpact on the temperature in the incubator. Possible solutions to this? 
 
 Nichrome. We could use nichrome in small strips over a 12V fan. if we use 1.2Amps with 12V we can generate up to 80W. This will generate alot of temperature increase in the incubator. This will have some troubling issues...
 
 1. If we dont scheck nichrome often it can become hot enough to melt, if that happens it can damage the fan enough to break it and stop it from heating the incubator. 
 2. To solve 1. We need to monitor the current temperatur of the nichrome and make sure it never reaches the melting point. 
-3. if 2 and 1 solved we need to generate appropriate output to the value and it needs to be exact, this requieres perfect values almsot. 
+3. if 2 and 1 solved we need to generate appropriate output to the value and it needs to be exact. this requires perfect values almsot because we need it hot enough to generate temperature and not high enough to melt.  
 
-A Simple 60W Lamp can be used to generate some temperature, problem is that most Lamps needs 220V and this needs a relay that can handle that hig voltage. This sulution works but the cost i rather high... 
+A Simple 60W Lamp can be used to generate some temperature, problem is that most Lamps needs 220V and this needs a relay system that can handle high voltages. A Relay system that handles high voltages cost alot! we are after low cost solutions
 
-The perfect sulution would be a cheap way to handle the temperature. 
+The perfect solution would be a cheap way to handle the temperature. 
