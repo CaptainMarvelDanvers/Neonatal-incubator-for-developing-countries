@@ -195,10 +195,22 @@ void setPwmFrequency(int pin, int divisor) {
 PID gives the opotion to have a Propotional, Integral, Derivative. 
 
 1. Propotional: This in its simplest form is error * Kp. In other words it's more error equals more output. Problem with this is that we will always overshot and undershot the set point (the value we are after) 
-2. Integral: Ki * ∫(error(t)): This will take the sum of all errors over some time T and multiplies it by Ki: The output will be U=I+P, More overshot will reduce the overshot and more overshot will increase I this will lead to lower error. 
-3. Derivative: Kd * f'(e)/dt: takes the velocity of the error and multiplies it with kd. Faster rate of error will go down with higher D. 
+2. Integral: Ki * ∫(error(t)): This will take the sum of all errors over some time T and multiplies it by Ki: The output will be U=I+P. More overshot will increase the I and less overshot will reduce it. This part is used to reduce the overshot part this combined with P can generate a stable humidity in the incubator. 
+3. Derivative: Kd * f'(e)/dt: takes the velocity of the error and multiplies it with kd. Faster rate of error will go down with higher D. This part is added when we need the system to react faster.
 
 Final part: U=I+P+D. All these togther lets us have a chanse to get a stable output around the value we are after. 
+
+### Find PID constants? 
+In this case we used a "trial and error" attack. Start with I = D = 0 and adjust Kp until you have a oscillating behavior. Oscillating behavior have undershot and overshot and this is then corrected with the integral part. 
+
+How you should start: 
+step 1: Make a guess for kP (we started with 0.5) 
+step 2: double the kP value 
+step 3: oscillating behavior?
+stpe 4: if yes... go to step 6 
+step 5: if no go to step 2
+step 6: Make a guess for kI(we started with 0.1) 
+step 7: make slow adjustments, add 0.5. until you are happy with the error 
 
 ### Showing Data in Real Time with Matlab Code
 
@@ -245,7 +257,7 @@ A Medical incubator needs to regulate both humidity and temperature. Our solutio
 
 Nichrome. We could use nichrome in small strips over a 12V fan. if we use 1.2Amps with 12V we can generate up to 80W. This will generate alot of temperature increase in the incubator. This will have some troubling issues...
 
-1. If we dont scheck nichrome often it can become hot enough to melt, if that happens it can damage the fan enough to break it and stop it from heating the incubator. 
+1. If we dont check nichrome often it can become hot enough to melt, if that happens it can damage the fan enough to break it and stop it from heating the incubator. 
 2. To solve 1. We need to monitor the current temperatur of the nichrome and make sure it never reaches the melting point. 
 3. if 2 and 1 solved we need to generate appropriate output to the value and it needs to be exact. this requires perfect values almsot because we need it hot enough to generate temperature and not high enough to melt.  
 
