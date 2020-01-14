@@ -14,7 +14,7 @@ Low cost medical incubator. Uses boiling water with candle to generate humidity.
 
 ### What components are we going to use? 
 
-DHT11 SENSOR - Find Current Temperature and FAN 
+DHT11 SENSOR - Find Current Temperature and humidity
 
 Arduino - Controll everything 
 
@@ -271,5 +271,3 @@ Nichrome. We could use nichrome in small strips over a 12V fan. if we use 1.2Amp
 3. if 2 and 1 solved we need to generate appropriate output to the value and it needs to be exact. this requires perfect values almsot because we need it hot enough to generate temperature and not high enough to melt.  
 
 A Simple 60W Lamp can be used to generate some temperature, problem is that most Lamps needs 220V and this needs a relay system that can handle high voltages. A Relay system that handles high voltages cost alot! we are after low cost solutions
-
-The perfect solution would be a cheap way to handle the temperature. 
